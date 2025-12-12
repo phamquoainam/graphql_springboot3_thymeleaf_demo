@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sản Phẩm (GraphQL)</title>
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🛒 Quản lý Sản Phẩm</h1>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <h3>➕ Thêm sản phẩm mới</h3>
+        <div class="form-group">
+            <label>Tên SP:</label>
+            <input type="text" id="pTitle" placeholder="Nhập tên sản phẩm...">
+        </div>
+        <div class="form-group">
+            <label>Giá:</label>
+            <input type="number" id="pPrice" placeholder="Nhập giá...">
+        </div>
+        <div class="form-group">
+            <label>Số lượng:</label>
+            <input type="number" id="pQuantity" value="1">
+        </div>
+        <div class="form-group">
+            <label>Danh mục:</label>
+            <select id="pCategory">
+                <option value="">-- Chọn danh mục --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>User ID:</label>
+            <input type="text" id="pUserId" value="1" placeholder="ID người đăng">
+        </div>
+        <button class="btn-primary" onclick="createProduct()">Lưu Sản Phẩm</button>
+    </div>
+
+    <hr>
+
+    <div class="controls">
+        <label><strong>Lọc theo danh mục:</strong></label>
+        <select id="filterCategory" onchange="filterProducts()">
+            <option value="ALL">Tất cả sản phẩm</option>
+        </select>
+        <button class="btn-info" onclick="loadProducts()">🔄 Tải lại danh sách</button>
+    </div>
+
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Danh mục</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

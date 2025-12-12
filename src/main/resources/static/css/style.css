@@ -1,0 +1,24 @@
+body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; }
+h1, h2 { color: #333; }
+
+/* Layout */
+.container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+.controls { margin-bottom: 20px; padding: 15px; background: #e9ecef; border-radius: 5px; display: flex; gap: 10px; align-items: center; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background-color: #007bff; color: white; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+
+/* Form */
+.form-group { margin-bottom: 10px; }
+.form-group label { display: inline-block; width: 100px; font-weight: bold; }
+.form-group input, .form-group select { padding: 5px; width: 300px; }
+
+/* Buttons */
+button { padding: 8px 15px; cursor: pointer; border: none; border-radius: 3px; color: white; }
+.btn-primary { background-color: #28a745; }
+.btn-danger { background-color: #dc3545; }
+.btn-info { background-color: #17a2b8; }
+button:hover { opacity: 0.9; }

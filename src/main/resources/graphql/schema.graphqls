@@ -1,0 +1,85 @@
+# --- Types ---
+type Category {
+    id: ID!
+    name: String
+    images: String
+    products: [Product]
+}
+
+type User {
+    id: ID!
+    fullname: String
+    email: String
+    phone: String
+    categories: [Category]
+}
+
+type Product {
+    id: ID!
+    title: String
+    quantity: Int
+    description: String
+    price: Float
+    user: User
+    category: Category
+}
+
+# --- Inputs ---
+input ProductInput {
+    title: String
+    price: Float
+    quantity: Int
+    description: String
+    userId: ID
+    categoryId: ID
+}
+
+input CategoryInput {
+    name: String
+    images: String
+}
+
+input UserInput {
+    fullname: String
+    email: String
+    password: String
+    phone: String
+    categoryIds: [ID]
+}
+
+# --- Query (Đọc dữ liệu) ---
+type Query {
+    # 1. Hiển thị tất cả product có price từ thấp đến cao
+    getAllProductsSorted: [Product]
+
+    # 2. Lấy tất cả product của 01 category
+    getProductsByCategory(categoryId: ID!): [Product]
+
+    # Các hàm xem danh sách cơ bản
+    getAllCategories: [Category]
+    getCategoryById(id: ID!): Category
+    
+    getAllUsers: [User]
+    getUserById(id: ID!): User
+    
+    getAllProducts: [Product]
+    getProductById(id: ID!): Product
+}
+
+# --- Mutation (Thêm, Sửa, Xóa) ---
+type Mutation {
+    # CRUD Product
+    createProduct(input: ProductInput): Product
+    updateProduct(id: ID!, input: ProductInput): Product
+    deleteProduct(id: ID!): Boolean
+
+    # CRUD Category
+    createCategory(input: CategoryInput): Category
+    updateCategory(id: ID!, input: CategoryInput): Category
+    deleteCategory(id: ID!): Boolean
+
+    # CRUD User
+    createUser(input: UserInput): User
+    updateUser(id: ID!, input: UserInput): User
+    deleteUser(id: ID!): Boolean
+}
