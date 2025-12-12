@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quản lý User</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="nav-bar">
+        <a th:href="@{/}">Sản phẩm</a>
+        <a th:href="@{/categories}">Danh mục</a>
+        <a th:href="@{/users}" class="active">Người dùng</a>
+    </div>
+
+    <h1>👤 Quản lý Người Dùng</h1>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <input type="hidden" id="uId">
+        <div class="form-group"><label>Họ tên:</label><input type="text" id="uName"></div>
+        <div class="form-group"><label>Email:</label><input type="text" id="uEmail"></div>
+        <div class="form-group"><label>SĐT:</label><input type="text" id="uPhone"></div>
+        <div class="form-group"><label>Password:</label><input type="password" id="uPass"></div>
+        <div class="form-group">
+            <label>Sở thích:</label>
+            <select id="uCategories" multiple style="height: 100px;"></select>
+            <br><small><i>(Giữ phím Ctrl để chọn nhiều)</i></small>
+        </div>
+        
+        <button id="btnSave" class="btn-primary" onclick="saveUser()">Lưu User</button>
+        <button id="btnCancel" class="btn-danger" onclick="clearForm()" style="display:none">Hủy</button>
+    </div>
+
+    <table id="userTable">
+        <thead><tr><th>ID</th><th>Họ tên</th><th>Email</th><th>SĐT</th><th>Sở thích</th><th>Hành động</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script th:src="@{/js/user.js}"></script>
+</body>
+</html>

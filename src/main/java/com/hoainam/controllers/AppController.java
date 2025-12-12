@@ -146,6 +146,28 @@ public class AppController {
         }
         return false;
     }
+    
+ // =========================================================
+    // PHẦN 3: WEB CONTROLLER (MAPPING URL CHO THYMELEAF)
+    // =========================================================
+
+    // Trang chủ quản lý sản phẩm (index.html)
+    @org.springframework.web.bind.annotation.GetMapping("/")
+    public String pageIndex() {
+        return "index"; 
+    }
+
+    // Trang quản lý danh mục (categories.html)
+    @org.springframework.web.bind.annotation.GetMapping("/categories")
+    public String pageCategories() {
+        return "categories"; 
+    }
+
+    // Trang quản lý người dùng (users.html)
+    @org.springframework.web.bind.annotation.GetMapping("/users")
+    public String pageUsers() {
+        return "users"; 
+    }
 
     // =========================================================
     // CÁC HÀM PHỤ TRỢ (HELPER METHODS) ĐỂ MAP DỮ LIỆU

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quản lý Danh mục</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="nav-bar">
+        <a th:href="@{/}">Sản phẩm</a>
+        <a th:href="@{/categories}" class="active">Danh mục</a>
+        <a th:href="@{/users}">Người dùng</a>
+    </div>
+
+    <h1>📂 Quản lý Danh Mục</h1>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <input type="hidden" id="cId">
+        <div class="form-group"><label>Tên:</label><input type="text" id="cName"></div>
+        <div class="form-group"><label>Ảnh:</label><input type="text" id="cImage"></div>
+        <button id="btnSave" class="btn-primary" onclick="saveCategory()">Lưu Danh Mục</button>
+        <button id="btnCancel" class="btn-danger" onclick="clearForm()" style="display:none">Hủy</button>
+    </div>
+
+    <table id="catTable">
+        <thead><tr><th>ID</th><th>Tên</th><th>Ảnh</th><th>Hành động</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script th:src="@{/js/category.js}"></script>
+</body>
+</html>

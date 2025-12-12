@@ -2,68 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý Sản Phẩm (GraphQL)</title>
-    
+    <title>Quản lý Sản Phẩm</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
 <div class="container">
-    <h1>🛒 Quản lý Sản Phẩm</h1>
-
-    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
-        <h3>➕ Thêm sản phẩm mới</h3>
-        <div class="form-group">
-            <label>Tên SP:</label>
-            <input type="text" id="pTitle" placeholder="Nhập tên sản phẩm...">
-        </div>
-        <div class="form-group">
-            <label>Giá:</label>
-            <input type="number" id="pPrice" placeholder="Nhập giá...">
-        </div>
-        <div class="form-group">
-            <label>Số lượng:</label>
-            <input type="number" id="pQuantity" value="1">
-        </div>
-        <div class="form-group">
-            <label>Danh mục:</label>
-            <select id="pCategory">
-                <option value="">-- Chọn danh mục --</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>User ID:</label>
-            <input type="text" id="pUserId" value="1" placeholder="ID người đăng">
-        </div>
-        <button class="btn-primary" onclick="createProduct()">Lưu Sản Phẩm</button>
+    <div class="nav-bar">
+        <a th:href="@{/}" class="active">Sản phẩm</a>
+        <a th:href="@{/categories}">Danh mục</a>
+        <a th:href="@{/users}">Người dùng</a>
     </div>
 
-    <hr>
+    <h1>Quản lý Sản Phẩm</h1>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <input type="hidden" id="pId"> <div class="form-group"><label>Tên SP:</label><input type="text" id="pTitle"></div>
+        <div class="form-group"><label>Giá:</label><input type="number" id="pPrice"></div>
+        <div class="form-group"><label>Số lượng:</label><input type="number" id="pQuantity"></div>
+        <div class="form-group">
+            <label>Danh mục:</label>
+            <select id="pCategory"><option value="">Loading...</option></select>
+        </div>
+        <div class="form-group"><label>User ID:</label><input type="text" id="pUserId" value="1"></div>
+        
+        <button id="btnSave" class="btn-primary" onclick="saveProduct()">Lưu Sản Phẩm</button>
+        <button id="btnCancel" class="btn-danger" onclick="clearForm()" style="display:none">Hủy</button>
+    </div>
 
     <div class="controls">
-        <label><strong>Lọc theo danh mục:</strong></label>
-        <select id="filterCategory" onchange="filterProducts()">
-            <option value="ALL">Tất cả sản phẩm</option>
-        </select>
-        <button class="btn-info" onclick="loadProducts()">🔄 Tải lại danh sách</button>
+        <select id="filterCategory"></select>
+        <button class="btn-info" onclick="loadProducts()">Refresh</button>
     </div>
 
     <table id="productTable">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tên Sản Phẩm</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Danh mục</th>
-                <th>Hành động</th>
-            </tr>
+            <tr><th>ID</th><th>Tên</th><th>Giá</th><th>SL</th><th>Danh mục</th><th>Hành động</th></tr>
         </thead>
         <tbody></tbody>
     </table>
 </div>
-
-<script th:src="@{/js/main.js}"></script>
-
+<script th:src="@{/js/product.js}"></script>
 </body>
 </html>

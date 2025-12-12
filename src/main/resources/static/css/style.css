@@ -22,3 +22,8 @@ button { padding: 8px 15px; cursor: pointer; border: none; border-radius: 3px; c
 .btn-danger { background-color: #dc3545; }
 .btn-info { background-color: #17a2b8; }
 button:hover { opacity: 0.9; }
+
+.nav-bar { background: #333; padding: 10px; margin-bottom: 20px; border-radius: 5px; }
+.nav-bar a { color: white; text-decoration: none; padding: 10px 20px; display: inline-block; }
+.nav-bar a:hover { background: #555; border-radius: 3px; }
+.nav-bar a.active { background: #007bff; font-weight: bold; border-radius: 3px; }
